@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container mt-4">
+
+    <h4><%= fornecedor ? "✏️ Editar" : "➕ Novo" %> Fornecedor</h4>
+
+    <form action="/fornecedor/salvar" method="POST">
+
+        <input type="hidden" name="id" value="<%= fornecedor ? fornecedor.id : '' %>">
+
+        <div class="mb-2">
+            <input type="text" name="nome" placeholder="Nome" class="form-control"
+                value="<%= fornecedor ? fornecedor.nome : '' %>" required>
+        </div>
+
+        <div class="mb-2">
+            <input type="text" name="cnpj" placeholder="CNPJ" class="form-control"
+                value="<%= fornecedor ? fornecedor.cnpj : '' %>" required>
+        </div>
+
+        <button class="btn btn-primary">Salvar</button>
+        <a href="/fornecedor" class="btn btn-secondary">Cancelar</a>
+
+    </form>
+
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container mt-4">
+
+    <h4>👤 Clientes</h4>
+
+    <a href="/cliente/novo" class="btn btn-success mb-3">
+        + Novo
+    </a>
+
+    <% clientes.forEach(c => { %>
+        <div class="card mb-2">
+            <div class="card-body">
+
+                <h5><%= c.nome %></h5>
+                <p>CPF: <%= c.cpf %></p>
+
+                <a href="/cliente/editar/<%= c.id %>" class="btn btn-warning btn-sm">
+                    Editar
+                </a>
+
+            </div>
+        </div>
+    <% }) %>
+
+</div>
+
+<%- include('../partials/footer') %>

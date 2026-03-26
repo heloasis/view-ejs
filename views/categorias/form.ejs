@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <h5 class="mb-3">
+                <%= categoria ? "✏️ Editar Categoria" : "➕ Nova Categoria" %>
+            </h5>
+
+            <form action="/categorias/salvar" method="POST">
+
+                <input type="hidden" name="id" value="<%= categoria ? categoria.id : '' %>">
+
+                <div class="mb-3">
+                    <label class="form-label">Nome</label>
+                    <input 
+                        type="text" 
+                        name="nome" 
+                        class="form-control form-control-lg"
+                        value="<%= categoria ? categoria.nome : '' %>" 
+                        required
+                    >
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary">Salvar</button>
+
+                    <a href="/categorias" class="btn btn-outline-secondary">
+                        Cancelar
+                    </a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<%- include('../partials/footer') %>

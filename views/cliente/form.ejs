@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container mt-4">
+
+    <h4><%= cliente ? "✏️ Editar" : "➕ Novo" %> Cliente</h4>
+
+    <form action="/cliente/salvar" method="POST">
+
+        <input type="hidden" name="id" value="<%= cliente ? cliente.id : '' %>">
+
+        <div class="mb-2">
+            <input type="text" name="nome" placeholder="Nome" class="form-control" value="<%= cliente ? cliente.nome : '' %>" required>
+        </div>
+
+        <div class="mb-2">
+            <input type="text" name="cpf" placeholder="CPF" class="form-control"
+                value="<%= cliente ? cliente.cpf : '' %>" required>
+        </div>
+
+        <button class="btn btn-primary">Salvar</button>
+        <a href="/cliente" class="btn btn-secondary">Cancelar</a>
+
+    </form>
+
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,66 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="mb-0">📂 Categorias</h4>
+
+        <a href="/categorias/nova" class="btn btn-success btn-sm">
+            + Nova
+        </a>
+    </div>
+
+    <!-- 🖥️ DESKTOP -->
+    <div class="d-none d-md-block">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th width="150">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% categorias.forEach(cat => { %>
+                    <tr>
+                        <td><%= cat.id %></td>
+                        <td><%= cat.nome %></td>
+                        <td>
+                            <a href="/categorias/editar/<%= cat.id %>" class="btn btn-warning btn-sm">
+                                Editar
+                            </a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 📱 MOBILE -->
+    <div class="d-md-none">
+        <% categorias.forEach(cat => { %>
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+
+                    <h5 class="card-title"><%= cat.nome %></h5>
+
+                    <p class="text-muted">ID: <%= cat.id %></p>
+
+                    <a href="/categorias/editar/<%= cat.id %>" 
+                       class="btn btn-warning btn-sm w-100">
+                        ✏️ Editar
+                    </a>
+
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+    <a href="/" class="btn btn-secondary w-100 mt-3">
+        Voltar
+    </a>
+
+</div>
+
+<%- include('../partials/footer') %>
